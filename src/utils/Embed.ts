@@ -1,5 +1,5 @@
 import { CommandoMessage, Argument, CommandoClient } from 'discord.js-commando';
-import { MessageEmbed } from 'discord.js';
+import { MessageEmbed, User } from 'discord.js';
 
 class Embed {
   static MessageEmbed(msg: string): MessageEmbed {
@@ -99,6 +99,38 @@ class Embed {
         embed.addField(grp.name, cmds);
       });
     return embed;
+  }
+
+  static ProfileEmbed(
+    msg: CommandoMessage,
+    infoMember: User | undefined
+  ): MessageEmbed {
+    return new MessageEmbed({
+      title: `**__${infoMember?.username}__**`,
+      color: 0xe51629,
+      timestamp: new Date(),
+      thumbnail: {
+        url: infoMember?.displayAvatarURL({ dynamic: true }),
+      },
+      fields: [
+        {
+          name: 'ID',
+          value: infoMember?.id,
+        },
+        {
+          name: 'TAG',
+          value: `${infoMember?.tag}`,
+        },
+        {
+          name: 'Created at',
+          value: `${infoMember?.createdAt.toDateString()} ${infoMember?.createdAt.toLocaleTimeString()}`,
+        },
+      ],
+      footer: {
+        icon_url: `${process.env.CLOUD_HOST}/maaatocloud/image/upload/v1603468885/ameisin_bot_logo.png`,
+        text: 'Ameisin 24/7',
+      },
+    });
   }
 }
 
