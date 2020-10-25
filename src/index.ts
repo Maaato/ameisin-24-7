@@ -13,13 +13,13 @@ const client: CommandoClient = new CommandoClient({
 });
 
 client.registry
-  .registerGroups([['utils', 'music', 'radio']])
+  .registerDefaultTypes()
+  .registerGroups([['utils']])
   .registerCommandsIn(path.join(__dirname, 'commands'));
 
 client.on('ready', async () => {
   Logger.info(`${client.user?.tag} Iniciado!`);
   client.user?.setActivity(`: 🎶 Youtube 🎶`, { type: 'LISTENING' });
-  console.log();
 });
 
 client.login(process.env.DISCORD_TOKEN);
