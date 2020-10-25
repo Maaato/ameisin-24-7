@@ -96,7 +96,7 @@ class Embed {
               }**\n${cmd.description}`
           )
           .join('\n\n');
-        embed.addField(grp.name, cmds);
+        embed.addField(`▸ __${grp.name}__`, cmds);
       });
     return embed;
   }
