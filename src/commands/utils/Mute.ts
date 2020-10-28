@@ -38,7 +38,6 @@ module.exports = class MuteCommand extends Command {
     if (key) {
       if (key === 'all') {
         for (const member of voiceChannel.members) {
-          console.log(member[1].user.username);
           if (!member[1].voice.mute) {
             member[1].voice.setMute(true);
           }
