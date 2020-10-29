@@ -152,6 +152,86 @@ class Embed {
     });
     return embedReturn;
   }
+
+  static ServerEmbed(msg: CommandoMessage): MessageEmbed {
+    return new MessageEmbed({
+      title: `**__${msg.guild.name}__**`,
+      color: 0xe51629,
+      timestamp: new Date(),
+      thumbnail: {
+        url: msg.guild.iconURL({ dynamic: true })!,
+      },
+      fields: [
+        {
+          name: 'ID',
+          value: msg.guild.id,
+        },
+        {
+          name: 'Owner',
+          value:
+            msg.guild.members.cache
+              .filter((m) => m.user.id === msg.guild.ownerID)
+              .first()?.user.tag || msg.guild.ownerID,
+        },
+        {
+          name: 'Region',
+          value: msg.guild.region,
+        },
+        {
+          name: 'Create At',
+          value: msg.guild.createdAt.toDateString(),
+        },
+        {
+          name: 'Members',
+          value: `${
+            msg.guild.members.cache.filter((m) => !m.user.bot).size
+          } Users | ${
+            msg.guild.members.cache.filter(
+              (m) => m.user.presence.status === 'online' && !m.user.bot
+            ).size
+          } Online | ${
+            msg.guild.members.cache.filter(
+              (m) => m.user.presence.status === 'idle' && !m.user.bot
+            ).size
+          } idle | ${
+            msg.guild.members.cache.filter(
+              (m) => m.user.presence.status === 'dnd' && !m.user.bot
+            ).size
+          } dnd | ${
+            msg.guild.members.cache.filter(
+              (m) => m.user.presence.status === 'offline' && !m.user.bot
+            ).size
+          } offline`,
+        },
+        {
+          name: 'Bots',
+          value: `${
+            msg.guild.members.cache.filter((m) => m.user.bot).size
+          } Bots | ${
+            msg.guild.members.cache.filter(
+              (m) => m.user.presence.status === 'online' && m.user.bot
+            ).size
+          } Online | ${
+            msg.guild.members.cache.filter(
+              (m) => m.user.presence.status === 'idle' && m.user.bot
+            ).size
+          } idle | ${
+            msg.guild.members.cache.filter(
+              (m) => m.user.presence.status === 'dnd' && m.user.bot
+            ).size
+          } dnd | ${
+            msg.guild.members.cache.filter(
+              (m) => m.user.presence.status === 'offline' && m.user.bot
+            ).size
+          } offline`,
+        },
+      ],
+      footer: {
+        icon_url: `${process.env.CLOUD_HOST}/maaatocloud/image/upload/v1603673016/ameisin_bot_logo.png`,
+        text: 'Ameisin 24/7',
+      },
+    });
+  }
 }
 
 export { Embed };
