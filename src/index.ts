@@ -8,6 +8,7 @@ dotenv.config();
 
 const client: CommandoClient = new CommandoClient({
   commandPrefix: process.env.DISCORD_PREFIX,
+  owner: process.env.OWNER_ID,
   commandEditableDuration: 10,
   nonCommandEditable: true,
 });

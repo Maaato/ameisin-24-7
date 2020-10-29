@@ -1,5 +1,12 @@
-import { CommandoMessage, Argument, CommandoClient } from 'discord.js-commando';
-import { MessageEmbed, User } from 'discord.js';
+import * as moment from 'moment';
+import 'moment-duration-format';
+import {
+  CommandoMessage,
+  Argument,
+  CommandoClient,
+  version as djsCommandoVersion,
+} from 'discord.js-commando';
+import { MessageEmbed, User, version as djsVersion } from 'discord.js';
 
 class Embed {
   static MessageEmbed(msg: string): MessageEmbed {
@@ -224,6 +231,61 @@ class Embed {
               (m) => m.user.presence.status === 'offline' && m.user.bot
             ).size
           } offline`,
+        },
+      ],
+      footer: {
+        icon_url: `${process.env.CLOUD_HOST}/maaatocloud/image/upload/v1603673016/ameisin_bot_logo.png`,
+        text: 'Ameisin 24/7',
+      },
+    });
+  }
+
+  static BotEmbed(client: CommandoClient): MessageEmbed {
+    return new MessageEmbed({
+      title: `**__${client.user?.username}__**`,
+      color: 0xe51629,
+      timestamp: new Date(),
+      thumbnail: {
+        url: `${process.env.CLOUD_HOST}/maaatocloud/image/upload/v1603673016/ameisin_bot_logo.png`,
+      },
+      fields: [
+        {
+          name: 'ID',
+          value: client.user?.id,
+        },
+        {
+          name: 'Owner',
+          value: client.owners[0].tag,
+        },
+        {
+          name: 'Uptime',
+          value: moment
+            .duration(client.uptime)
+            .format(' D [days], H [hrs], m [mins], s [secs]'),
+        },
+        {
+          name: 'Memory Usage',
+          value: `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(
+            2
+          )} / ${(process.memoryUsage().heapTotal / 1024 / 1024).toFixed(
+            2
+          )} MB`,
+        },
+        {
+          name: 'AMS24/7',
+          value: `v${process.env.npm_package_version}`,
+        },
+        {
+          name: 'Discord.js-Commando',
+          value: `v${djsCommandoVersion}`,
+        },
+        {
+          name: 'Discord.js',
+          value: `v${djsVersion}`,
+        },
+        {
+          name: 'Nodejs',
+          value: process.version,
         },
       ],
       footer: {
