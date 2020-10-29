@@ -14,7 +14,7 @@ const client: CommandoClient = new CommandoClient({
 
 client.registry
   .registerDefaultTypes()
-  .registerGroups([['utils']])
+  .registerGroups([['utils'], ['generate']])
   .registerCommandsIn(path.join(__dirname, 'commands'));
 
 client.on('ready', async () => {

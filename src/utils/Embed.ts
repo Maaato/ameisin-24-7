@@ -101,11 +101,8 @@ class Embed {
     return embed;
   }
 
-  static ProfileEmbed(
-    msg: CommandoMessage,
-    infoMember: User | undefined
-  ): MessageEmbed {
-    return new MessageEmbed({
+  static ProfileEmbed(infoMember: User | undefined): MessageEmbed {
+    const embedReturn = new MessageEmbed({
       title: `**__${infoMember?.username}__**`,
       color: 0xe51629,
       timestamp: new Date(),
@@ -131,6 +128,29 @@ class Embed {
         text: 'Ameisin 24/7',
       },
     });
+
+    infoMember!.presence.activities.length > 0
+      ? infoMember?.presence.activities[0].state
+        ? embedReturn.addField(
+            'Custom State',
+            `${infoMember!.presence.activities[0].state}`
+          )
+        : null
+      : null;
+
+    infoMember!.presence.activities.slice(1).forEach((act) => {
+      embedReturn.addField(
+        `• ${act.type
+          .charAt(0)
+          .toUpperCase()
+          .concat(act.type.slice(1).toLocaleLowerCase())} ${act.name}`,
+        `(${act.details?.trim().replace(/;/g, '')}) - (${act.state?.replace(
+          /;/g,
+          ''
+        )})`
+      );
+    });
+    return embedReturn;
   }
 }
 

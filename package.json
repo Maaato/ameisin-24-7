@@ -15,6 +15,7 @@
     "watch": "tsc -w"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "discord.js": "^12.3.1",
     "discord.js-commando": "github:discordjs/Commando",
     "dotenv": "^8.2.0",

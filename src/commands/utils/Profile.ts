@@ -1,4 +1,4 @@
-import { GuildMember, User } from 'discord.js';
+import { User } from 'discord.js';
 import { CommandoClient, Command, CommandoMessage } from 'discord.js-commando';
 import { Embed } from '../../utils/Embed';
 
@@ -10,8 +10,7 @@ module.exports = class ProfileCommand extends Command {
       examples: ['profile @user', 'profile'],
       group: 'utils',
       memberName: 'profile-guild',
-      description:
-        'Calcula el ping entre enviar un mensaje y editarlo, lo que proporciona una latencia de ida y vuelta.',
+      description: 'Retorna la información de un miembro del servidor.',
       args: [
         {
           key: 'member',
@@ -27,6 +26,9 @@ module.exports = class ProfileCommand extends Command {
     const infoMember: User | undefined = member
       ? msg.mentions.members?.first()?.user
       : msg.author;
-    return msg.channel.send(Embed.ProfileEmbed(msg, infoMember));
+    const embed = infoMember
+      ? Embed.ProfileEmbed(infoMember)
+      : Embed.MessageEmbed(`Imposible acceder al miembro mencionado`);
+    return msg.channel.send(embed);
   }
 };
