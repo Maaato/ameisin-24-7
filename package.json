@@ -1,6 +1,6 @@
 {
-  "name": "ameisin-bot",
-  "version": "1.0.0",
+  "name": "ameisin-24-7",
+  "version": "1.14.0",
   "description": "",
   "main": "index.js",
   "keywords": [],
@@ -19,11 +19,15 @@
     "discord.js": "^12.3.1",
     "discord.js-commando": "github:discordjs/Commando",
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
     "ytdl-core": "^3.4.0"
   },
   "devDependencies": {
+    "@types/express": "^4.17.9",
+    "@types/express-handlebars": "^3.1.0",
     "@types/moment-duration-format": "^2.2.2",
     "@types/node": "^14.11.8",
     "@typescript-eslint/eslint-plugin": "^4.4.1",

@@ -15,7 +15,7 @@ class Embed {
       timestamp: new Date(),
       description: `**${msg}**`,
       footer: {
-        icon_url: `${process.env.CLOUD_HOST}/maaatocloud/image/upload/v1603673016/ameisin_bot_logo.png`,
+        icon_url: `${process.env.CLOUD_HOST}/maaatocloud/image/upload/v1604787795/ams_logo.png`,
         text: 'Ameisin 24/7',
       },
     });
@@ -25,7 +25,7 @@ class Embed {
     const embed: MessageEmbed = new MessageEmbed({
       description: `A continuación se muestran algunos ejemplos de uso, alias y descripción del comando **\`${command.name}\`**.\n Nota: *<opcional>* | *(requerido)*`,
       footer: {
-        icon_url: `${process.env.CLOUD_HOST}/maaatocloud/image/upload/v1603673016/ameisin_bot_logo.png`,
+        icon_url: `${process.env.CLOUD_HOST}/maaatocloud/image/upload/v1604787795/ams_logo.png`,
         text: 'Ameisin 24/7',
       },
       timestamp: new Date(),
@@ -84,7 +84,7 @@ class Embed {
         process.env.DISCORD_PREFIX
       }help <command>.\n\nComandos Disponibles en **${msg.guild || 'DM'}**`,
       footer: {
-        icon_url: `${process.env.CLOUD_HOST}/maaatocloud/image/upload/v1603673016/ameisin_bot_logo.png`,
+        icon_url: `${process.env.CLOUD_HOST}/maaatocloud/image/upload/v1604787795/ams_logo.png`,
         text: 'Ameisin 24/7',
       },
       timestamp: new Date(),
@@ -131,7 +131,7 @@ class Embed {
         },
       ],
       footer: {
-        icon_url: `${process.env.CLOUD_HOST}/maaatocloud/image/upload/v1603673016/ameisin_bot_logo.png`,
+        icon_url: `${process.env.CLOUD_HOST}/maaatocloud/image/upload/v1604787795/ams_logo.png`,
         text: 'Ameisin 24/7',
       },
     });
@@ -234,7 +234,7 @@ class Embed {
         },
       ],
       footer: {
-        icon_url: `${process.env.CLOUD_HOST}/maaatocloud/image/upload/v1603673016/ameisin_bot_logo.png`,
+        icon_url: `${process.env.CLOUD_HOST}/maaatocloud/image/upload/v1604787795/ams_logo.png`,
         text: 'Ameisin 24/7',
       },
     });
@@ -246,7 +246,7 @@ class Embed {
       color: 0xe51629,
       timestamp: new Date(),
       thumbnail: {
-        url: `${process.env.CLOUD_HOST}/maaatocloud/image/upload/v1603673016/ameisin_bot_logo.png`,
+        url: `${process.env.CLOUD_HOST}/maaatocloud/image/upload/v1604787795/ams_logo.png`,
       },
       fields: [
         {
@@ -289,7 +289,7 @@ class Embed {
         },
       ],
       footer: {
-        icon_url: `${process.env.CLOUD_HOST}/maaatocloud/image/upload/v1603673016/ameisin_bot_logo.png`,
+        icon_url: `${process.env.CLOUD_HOST}/maaatocloud/image/upload/v1604787795/ams_logo.png`,
         text: 'Ameisin 24/7',
       },
     });
